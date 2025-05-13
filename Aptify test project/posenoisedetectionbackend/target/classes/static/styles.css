@@ -1,0 +1,17 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#detectionFrame {
+    max-width: 640px;
+    max-height: 480px;
+}
+
+#stats p {
+    font-size: 1.2em;
+}
+
+.badge {
+    font-size: 1em;
+    padding: 0.5em;
+}
