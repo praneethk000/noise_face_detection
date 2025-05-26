@@ -89,7 +89,7 @@ try:
             print(f"Error: Failed to write image to {output_path}")
             break
 
-        print(f"People detected: {num_people}", flush=True)
+#         print(f"People detected: {num_people}", flush=True)
         time.sleep(0.033)  # ~30 FPS
 
 except Exception as e:

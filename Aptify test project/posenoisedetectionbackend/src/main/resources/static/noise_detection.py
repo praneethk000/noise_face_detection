@@ -86,7 +86,7 @@ try:
             # Determine if noisy
             is_noisy = rms > NOISE_THRESHOLD
             # Output to stdout
-            print(f"Noise RMS: {rms:.6f}, Is Noisy: {is_noisy}", flush=True)
+#             print(f"Noise RMS: {rms:.6f}, Is Noisy: {is_noisy}", flush=True)
             time.sleep(0.1)
         except Exception as e:
             print(f"Error processing audio: {e}", file=sys.stderr)

@@ -103,7 +103,7 @@ import java.io.InputStreamReader;
 @Service
 public class PeopleDetectionService {
 
-    private static final String PYTHON_SCRIPT_PATH = "people_detection.py";
+    private static final String PYTHON_SCRIPT_PATH = "new_people_detection.py";
     private static final String OUTPUT_DIR = "src" + File.separator + "main" + File.separator + "resources" + File.separator + "static" + File.separator;
     private static final String OUTPUT_FILE = "live_output.jpg";
     private Process process;
@@ -128,7 +128,7 @@ public class PeopleDetectionService {
                 try {
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        System.out.println("Python output: " + line);
+//                        System.out.println("Python output: " + line);
                         if (line.startsWith("People detected:")) {
                             try {
                                 peopleCount = Integer.parseInt(line.split(":")[1].trim());
@@ -137,7 +137,7 @@ public class PeopleDetectionService {
                             }
                         }
                     }
-                    System.err.println("Python script stopped unexpectedly.");
+//                    System.err.println("Python script stopped unexpectedly.");
                     if (restartAttempts < MAX_RESTART_ATTEMPTS) {
                         restartPythonScript();
                     } else {
@@ -163,7 +163,7 @@ public class PeopleDetectionService {
     public DetectionResult detectPeople() throws IOException {
         File outputFile = new File(OUTPUT_DIR + OUTPUT_FILE);
         if (!outputFile.exists()) {
-            System.err.println("Live output image not found. Checking script status...");
+//            System.err.println("Live output image not found. Checking script status...");
             if (!process.isAlive()) {
                 restartPythonScript();
             }
@@ -180,7 +180,7 @@ public class PeopleDetectionService {
     public void cleanup() {
         if (process != null) {
             process.destroy();
-            System.out.println("Python process terminated during cleanup.");
+//            System.out.println("Python process terminated during cleanup.");
             process = null;
         }
         if (reader != null) {
